@@ -1,6 +1,22 @@
 ---
-const { data } = Astro.props;
+const { product } = Astro.props;
 ---
 
-<h2>{data.productdisplayname}</h2>
-<p>{data.price} kr.</p>
+<article class="product">
+  <a href="product.html?id=${product.id}" class="product_link">
+    <div class="image_container">
+      <img
+        src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
+        alt="${product.productdisplayname}"
+      />
+    </div>
+  </a>
+  <div class="product_info">
+    <p class="brand">{product.brandname}</p>
+    <h3>{product.productdisplayname}</h3>
+    <div class="price_container">
+      <p class="old_price">DKK {product.price},-</p>
+      <p class="new_price">DKK {product.discount},-</p>
+    </div>
+  </div>
+</article>
