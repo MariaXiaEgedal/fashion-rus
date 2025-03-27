@@ -10,7 +10,9 @@ console.log(data);
 
 <Layout>
   <h2>Produktliste</h2>
-  {data.map((element) => <ProductCard product={element} />)}
+  <section class="product_list_container">
+    {data.map((element) => <ProductCard product={element} />)}
+  </section>
 </Layout>
 
 <style></style>
