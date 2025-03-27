@@ -1,5 +1,6 @@
 ---
-import "../css/base.css";
+import "../css/global.css";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -8,10 +9,15 @@ import "../css/base.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
