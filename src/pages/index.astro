@@ -1,11 +1,109 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <h1>hej</h1>
-  <a href="productlist/">productlist</a>
+  <main>
+    <h1>FASHION<span>Я</span>US</h1>
+    <h2>Categories</h2>
+    <div class="category_list_container">
+      <a href="productlist/">Accessories</a>
+      <a href="productlist/">Clothing</a>
+      <a href="productlist/">Shoes</a>
+      <a href="productlist/">Free Items</a>
+      <a href="productlist/">Personal Care</a>
+      <a href="productlist/">Sport</a>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 200px;
+    margin: 0;
+    text-align: center;
+    margin-top: -200px;
+    margin-bottom: -100px;
+  }
+
+  h1 span {
+    color: #d84727;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  .category_list_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 0 100px;
+  }
+
+  .category_list_container a {
+    display: flex;
+    justify-content: center;
+    background-color: #ea3b2e;
+    color: white;
+    font-size: 18px;
+    padding: 15px 60px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    letter-spacing: 2px;
+  }
+
+  .category_list_container a:hover {
+    background-color: #f7837b;
+  }
+
+  /* MOBIL */
+  @media (max-width: 650px) {
+    h1 {
+      font-size: 70px;
+      margin-top: -180px;
+      margin-bottom: -70px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      margin-bottom: 10px;
+    }
+
+    .category_list_container {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 0 30px;
+    }
+  }
+
+  /* TABLET */
+  @media (min-width: 650px) and (max-width: 1000px) {
+    h1 {
+      font-size: 130px;
+      text-align: center;
+      margin-top: -200px;
+      margin-bottom: -100px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      margin-bottom: 10px;
+    }
+
+    .category_list_container {
+      margin: 0px 50px;
+    }
+  }
+</style>

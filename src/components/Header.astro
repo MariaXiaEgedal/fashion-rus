@@ -1,0 +1,102 @@
+<header>
+  <a href="/index.html" class="logo">
+    <h1>FASHION<span>Я</span>US</h1>
+  </a>
+
+  <div class="burger-wrapper">
+    <input type="checkbox" id="burger-toggle" />
+    <label for="burger-toggle" class="burger-menu">☰</label>
+    <nav>
+      <ul class="menu">
+        <li><a href="/index.html">Categories</a></li>
+        <li><a href="/index.html">Brands</a></li>
+        <li><a href="/index.html">Seasons</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  .logo h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin: 0;
+    color: white;
+  }
+
+  .logo h1 span {
+    color: #d84727;
+  }
+
+  /* Burger menu funktion */
+  .burger-menu {
+    display: none;
+    font-size: 35px;
+    cursor: pointer;
+  }
+
+  #burger-toggle {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    letter-spacing: 2px;
+  }
+
+  nav ul li a:hover {
+    color: #d84727;
+    text-shadow: 2px 2px 5px rgba(216, 71, 39, 0.5);
+  }
+
+  /* MOBILE STYLING */
+  @media (max-width: 650px) {
+    .burger-menu {
+      display: block;
+    }
+
+    nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: black;
+      width: 100%;
+    }
+
+    #burger-toggle:checked + label + nav {
+      display: block;
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    nav ul li {
+      text-align: center;
+    }
+
+    nav ul li a {
+      display: block;
+    }
+  }
+</style>
