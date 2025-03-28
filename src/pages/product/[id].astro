@@ -26,12 +26,6 @@ const { data } = Astro.props;
         alt=""
         class="productImage"
       />
-      {
-        data.discount
-          ? `<div class="discount-label">-${data.discount}%</div>`
-          : ""
-      }
-      {data.soldout ? '<span class="soldout_label">Sold Out</span>' : ""}
     </figure>
 
     <div class="single_product_info">
@@ -39,14 +33,19 @@ const { data } = Astro.props;
       <h2 class="product_name">{data.productdisplayname}</h2>
       <p class="inventory_number">Inventory number {data.id}</p>
 
-      <div class="price_container">
-        {
-          data.discount
-            ? `<p class="old_price"> DKK ${data.price},-</p> 
-           <p class="new_price">DKK ${(data.price - (data.discount * data.price) / 100).toFixed(2)},-</p>`
-            : `<p class="new_price">DKK ${data.price},-</p>`
-        }
-      </div>
+      <p class="price">
+        DKK <span class={data.discount ? "onsale" : "fullprice"}>
+          {data.price}</span
+        >,-
+      </p>
+      {
+        data.discount && (
+          <p>
+            Now DKK{" "}
+            {Math.round(data.price - (data.price * data.discount) / 100)},-
+          </p>
+        )
+      }
 
       <p class="color">
         Color: <span class="color-indicator">{data.basecolour}</span>
@@ -67,3 +66,13 @@ const { data } = Astro.props;
     </div>
   </main>
 </Layout>
+
+<style>
+  .onsale {
+    text-decoration: line-through;
+    color: chocolate;
+  }
+  .fullprice {
+    color: chartreuse;
+  }
+</style>
