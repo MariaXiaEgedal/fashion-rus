@@ -3,20 +3,34 @@ const { product } = Astro.props;
 ---
 
 <article class="product">
-  <a href="product.html?id=${product.id}" class="product_link">
-    <div class="image_container">
-      <img
-        src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
-        alt="${product.productdisplayname}"
-      />
-    </div>
-  </a>
-  <div class="product_info">
-    <p class="brand">{product.brandname}</p>
-    <h3>{product.productdisplayname}</h3>
-    <div class="price_container">
-      <p class="old_price">DKK {product.price},-</p>
-      <p class="new_price">DKK {product.discount},-</p>
-    </div>
-  </div>
+  <img
+    src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
+    alt="product imgage"
+  />
+  <p class="brand">{product.brandname}</p>
+  <h3>{product.productdisplayname}</h3>
+  <p class="price">
+    DKK <span class={product.discount ? "onsale" : "fullprice"}>
+      {product.price}</span
+    >,-
+  </p>
+  {
+    product.discount && (
+      <p>
+        Now DKK{" "}
+        {Math.round(product.price - (product.price * product.discount) / 100)},-
+      </p>
+    )
+  }
+  <a href={`../product/${product.id}`}>Read More</a>
 </article>
+
+<style>
+  .onsale {
+    text-decoration: line-through;
+    color: chocolate;
+  }
+  .fullprice {
+    color: chartreuse;
+  }
+</style>
