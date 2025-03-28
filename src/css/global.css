@@ -33,9 +33,9 @@ img {
 /* Gør hvert produkt til en subgrid ??????*/
 .product {
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Definerer tre rækker: top, midte, bund */
-  grid-row: span 2; /* Sørger for ensartet højde */
-  gap: 0px; /* Justerer afstand for bedre alignment */
+  grid-template-rows: auto 1fr auto;
+  grid-row: span 2;
+  gap: 0px;
 }
 
 .product:hover {
